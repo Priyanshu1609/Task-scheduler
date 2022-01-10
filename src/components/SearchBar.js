@@ -89,7 +89,6 @@ const SeachBar = ({
                     <input className="bg-gray-100 outline-none" type="text" onChange={(e) => {
                         onQueryChange(e.target.value);
                     }}
-                        type="text"
                         name="query"
                         id="query"
                         value={query} />
