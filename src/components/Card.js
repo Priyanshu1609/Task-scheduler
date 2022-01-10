@@ -2,7 +2,7 @@ import React from 'react'
 import { BiTrash } from "react-icons/bi";
 const Card = ({ appointment, onDeleteAppointment }) => {
     return (
-        <div >
+        <div className=" p-4">
             <li className="border-gray-400 flex flex-row">
                 <div
                     className="select-none flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 rounded-2xl border-2  hover:shadow-2xl border-red-400"

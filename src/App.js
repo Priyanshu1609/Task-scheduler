@@ -61,10 +61,9 @@ function App() {
           setSortBy(newSort);
         }}
       />
-      <ul className=" max-w-5xl mx-auto">
+      <ul className=" max-w-5xl mx-auto flex flex-col">
         {filteredAppointments.map((appointment) => {
-          return (
-            < div className="flex flex-col p-4" >
+          return (              
               <Card
                 key={appointment.id}
                 appointment={appointment}
@@ -76,7 +75,6 @@ function App() {
                   );
                 }}
               />
-            </div>
           );
         })}
       </ul>
