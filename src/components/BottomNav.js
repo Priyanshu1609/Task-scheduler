@@ -8,7 +8,7 @@ const BottomNav = () => {
                         <div className="flex flex-row space-x-3 justify-center">
     
                             <div className="flex group">
-                                <a href="#" className="p-3 text-gray-400 hover:text-red-500">
+                                <a href="/#" className="p-3 text-gray-400 hover:text-red-500">
                                     <span className="flex flex-col items-center">
 
                                         <i className="mdi mdi-home-outline mdi-24px mx-1 text-gray-500 group-hover:text-gray-700
@@ -26,7 +26,7 @@ const BottomNav = () => {
                             </div>
 
                             <div className="flex group">
-                                <a href="#" className="p-3 text-gray-400 hover:text-red-500">
+                                <a href="/#" className="p-3 text-gray-400 hover:text-red-500">
                                     <span className="flex flex-col items-center">
 
                                         <i className="mdi mdi-compass-outline mdi-24px mx-1 text-gray-500 group-hover:text-gray-700
@@ -46,7 +46,7 @@ const BottomNav = () => {
 
 
                             <div className="flex group">
-                                <a href="#" className="p-3 text-red-500 hover:text-red-500">
+                                <a href="/#" className="p-3 text-red-500 hover:text-red-500">
                                     <span className="flex flex-col items-center">
 
                                         <i className="mdi mdi-layers-outline mdi-24px mx-1 text-gray-700 group-hover:text-gray-700
@@ -65,7 +65,7 @@ const BottomNav = () => {
                             </div>
 
                             <div className="flex group">
-                                <a href="#" className="p-3 text-gray-400 hover:text-red-500">
+                                <a href="/#" className="p-3 text-gray-400 hover:text-red-500">
                                     <span className="flex flex-col items-center">
                              
                                         <i className="mdi mdi-basket-plus-outline mdi-24px mx-1 text-gray-500 group-hover:text-gray-700
@@ -83,7 +83,7 @@ const BottomNav = () => {
                             </div>
 
                             <div className="flex group">
-                                <a href="." className="p-3 text-gray-400 hover:text-red-500">
+                                <a href="/#" className="p-3 text-gray-400 hover:text-red-500">
                                     <span className="flex flex-col items-center">
                                         <i className="mdi mdi-account-circle-outline mdi-24px mx-1 text-gray-500 group-hover:text-gray-700
 									transition-color duration-200"></i>
