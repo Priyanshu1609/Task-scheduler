@@ -14,8 +14,8 @@ const Navbar = () => {
                     <h2 className="hidden md:inline-block text-3xl hover:text-red-600"> Your appintments </h2>
 
                     <div className="flex items-center">
-                        <a href="#" className="text-gray-800 text-sm font-semibold hover:text-red-600 mr-4">Sign in</a>
-                        <a href="#" className="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-red-600 hover:border-red-600">Sign up</a>
+                        <a href="." className="text-gray-800 text-sm font-semibold hover:text-red-600 mr-4">Sign in</a>
+                        <a href="." className="text-gray-800 text-sm font-semibold border px-4 py-2 rounded-lg hover:text-red-600 hover:border-red-600">Sign up</a>
                     </div>
                 </div>
 

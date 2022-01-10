@@ -83,7 +83,7 @@ const BottomNav = () => {
                             </div>
 
                             <div className="flex group">
-                                <a href="#" className="p-3 text-gray-400 hover:text-red-500">
+                                <a href="." className="p-3 text-gray-400 hover:text-red-500">
                                     <span className="flex flex-col items-center">
                                         <i className="mdi mdi-account-circle-outline mdi-24px mx-1 text-gray-500 group-hover:text-gray-700
 									transition-color duration-200"></i>

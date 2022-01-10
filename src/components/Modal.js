@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BiCalendarPlus, BiCloset, BiWindowClose, LockClosedIcon } from 'react-icons/bi';
+import { BiCalendarPlus } from 'react-icons/bi';
 
 const Modal = ({ onSendAppointment, lastId }) => {
 
