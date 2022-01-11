@@ -33,7 +33,7 @@ const Navbar = () => {
         });
     }
     return (
-        <div div className="bg-white shadow">
+        <div div className="bg-white shadow font-Raleway">
 
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between py-4">

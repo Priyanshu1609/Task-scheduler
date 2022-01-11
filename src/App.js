@@ -41,7 +41,7 @@ function App() {
     });
 
   return (
-    <div className="container mx-auto mt-5 font-thin">
+    <div className="container mx-auto mt-5 font-thin font-Raleway">
       {/* Appoint input and get stores in appointment listts*/}
       <Modal
         lastId={appointmentList.reduce(
