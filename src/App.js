@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
-import { auth } from "./components/Firebase";
 
 
 function App() {
