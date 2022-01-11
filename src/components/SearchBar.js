@@ -22,21 +22,21 @@ const DropDown = ({
             >
                 <div
                     onClick={() => {
-                        onSortByChange("petName");
+                        onSortByChange("Name");
                     }}
                     className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
                     role="menuitem"
                 >
-                    Pet Name {sortBy === "petName" ? <BiCheck /> : null}
+                     Name {sortBy === "Name" ? <BiCheck /> : null}
                 </div>
                 <div
                     onClick={() => {
-                        onSortByChange("ownerName");
+                        onSortByChange("appointmentName");
                     }}
                     className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
                     role="menuitem"
                 >
-                    Owner Name {sortBy === "ownerName" ? <BiCheck /> : null}
+                Appointment Name {sortBy === "appointmentName" ? <BiCheck /> : null}
                 </div>
                 <div
                     onClick={() => {

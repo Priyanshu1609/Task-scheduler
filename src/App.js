@@ -16,14 +16,14 @@ function App() {
     fetchData();
   }, [fetchData]);
   const [query, setQuery] = useState("");
-  const [sortBy, setSortBy] = useState("petName");
+  const [sortBy, setSortBy] = useState("Name");
   const [orderBy, setOrderBy] = useState("asc");
 
   const filteredAppointments = appointmentList
     .filter((item) => {
       return (
-        item.petName.toLowerCase().includes(query.toLowerCase()) ||
-        item.ownerName.toLowerCase().includes(query.toLowerCase()) ||
+        item.Name.toLowerCase().includes(query.toLowerCase()) ||
+        item.appointmentName.toLowerCase().includes(query.toLowerCase()) ||
         item.aptNotes.toLowerCase().includes(query.toLowerCase())
       );
     })

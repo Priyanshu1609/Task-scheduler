@@ -9,14 +9,14 @@ const Card = ({ appointment, onDeleteAppointment }) => {
                 >
                     <div className="flex-1 pl-1 mr-16">
                         <div className="font-medium">
-                            <span className="flex-none font-medium text-2xl text-blue-500">
-                                {appointment.petName}
+                            <span className="flex-none font-medium text-2xl text-red-500">
+                                {appointment.Name}
                             </span>
                         </div>
                         <div className="flex-grow">
                             <div>
-                                <b className="font-bold text-blue-500">Owner:</b>{" "}
-                                {appointment.ownerName}
+                                <b className="font-bold text-red-500">Appointment:</b>{" "}
+                                {appointment.appointmentName}
                             </div>
                             <div className="leading-tight">{appointment.aptNotes}</div>
                         </div>
@@ -29,7 +29,7 @@ const Card = ({ appointment, onDeleteAppointment }) => {
                     <button
                         onClick={() => onDeleteAppointment(appointment.id)}
                         type="button"
-                        className="p-1.5 mr-1.5 mt-1 rounded text-white bg-red-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="p-1.5 mr-1.5 mt-1 rounded text-white bg-red-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                         <BiTrash />
                     </button>

@@ -9,8 +9,8 @@ const Modal = ({ onSendAppointment, lastId }) => {
     const formDataPublish = () => {
         const appointmentInfo = {
             id: lastId + 1,
-            ownerName: formData.ownerName,
-            petName: formData.petName,
+            appointmentName: formData.appointmentName,
+            Name: formData.Name,
             aptDate: formData.aptDate + " " + formData.aptTime,
             aptNotes: formData.aptNotes,
         };
@@ -40,44 +40,46 @@ const Modal = ({ onSendAppointment, lastId }) => {
 
             {toggleForm && <div className="flex items-center justify-center fixed left-0 bottom-0 w-full h-full backdrop-blur-sm  z-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ">
 
-                <div className="border-r-2 border-b-2 border-l-2 border-light-red-500 rounded-b-md pl-4 pr-4 pb-4">
+                <form  className="border-r-2 border-b-2 border-l-2 border-light-red-500 rounded-b-md pl-4 pr-4 pb-4 bg-red-200">
                     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
                         <label
-                            htmlFor="ownerName"
+                            htmlFor="appointmentName"
                             className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                         >
-                            Owner Name
+                            Appointment Name
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                             <input
                                 onChange={(e) => {
-                                    setFormData({ ...formData, ownerName: e.target.value });
+                                    setFormData({ ...formData, appointmentName: e.target.value });
                                 }}
                                 type="text"
-                                name="ownerName"
-                                id="ownerName"
-                                className="max-w-lg block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                required
+                                name="appointmentName"
+                                id="appointmentName"
+                                className="max-w-lg block w-full shadow-sm  sm:max-w-xs sm:text-sm  rounded-md py-1 px-1 focus:outline-none"
                             />
                         </div>
                     </div>
 
                     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
                         <label
-                            htmlFor="petName"
+                            htmlFor="Name"
                             className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                         >
-                            Pet Name
+                             Name
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                             <input
                                 onChange={(e) => {
-                                    setFormData({ ...formData, petName: e.target.value });
+                                    setFormData({ ...formData, Name: e.target.value });
                                 }}
-                                value={formData.petName}
+                                value={formData.Name}
+                                required
                                 type="text"
-                                name="petName"
-                                id="petName"
-                                className="max-w-lg block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                name="Name"
+                                id="Name"
+                                className="max-w-lg block w-full shadow-sm  sm:max-w-xs sm:text-sm  rounded-md py-1 px-1 focus:outline-none"
                             />
                         </div>
                     </div>
@@ -98,7 +100,8 @@ const Modal = ({ onSendAppointment, lastId }) => {
                                 type="date"
                                 name="aptDate"
                                 id="aptDate"
-                                className="max-w-lg block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                required
+                                className="max-w-lg block w-full shadow-sm  sm:max-w-xs sm:text-sm py-1 px-1 focus:outline-none rounded-md"
                             />
                         </div>
                     </div>
@@ -119,7 +122,8 @@ const Modal = ({ onSendAppointment, lastId }) => {
                                 type="time"
                                 name="aptTime"
                                 id="aptTime"
-                                className="max-w-lg block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                                required
+                                className="max-w-lg block w-full shadow-sm py-1 px-1 focus:outline-none sm:max-w-xs sm:text-sm  rounded-md"
                             />
                         </div>
                     </div>
@@ -140,7 +144,8 @@ const Modal = ({ onSendAppointment, lastId }) => {
                                 id="aptNotes"
                                 name="aptNotes"
                                 rows="3"
-                                className="shadow-sm focus:ring-yellow-500 focus:border-yellow-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+                                required
+                                className="shadow-sm py-1 px-1 focus:outline-none mt-1 block w-full sm:text-sm  rounded-md"
                                 placeholder="Detailed comments about the condition"
                             ></textarea>
                         </div>
@@ -149,23 +154,23 @@ const Modal = ({ onSendAppointment, lastId }) => {
                     <div className="pt-5">
 
                         <div className="flex justify-between">
-                            <div onClick={() => {setToggleForm(!toggleForm)}}>
+                            <div className="transform hover:scale-150 transition duration-500" onClick={() => {setToggleForm(!toggleForm)}}>
                                 <svg
 
-                                    xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-900 hover:text-red-500 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </div>
                             <button
                                 onClick={formDataPublish}
                                 type="submit"
-                                className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400"
+                                className="ml-3 transform hover:scale-105 transition duration-500 py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-red-400 hover:bg-red-700 "
                             >
                                 Submit
                             </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>}
         </div>
     )
