@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Navbar from './components/Navbar';
-import BottomNav from './components/BottomNav';
+
 
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <Navbar/>
     <App />
-    <BottomNav/>
   </React.StrictMode>,
   document.getElementById('root')
 );

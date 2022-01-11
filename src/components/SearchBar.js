@@ -27,7 +27,7 @@ const DropDown = ({
                     className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
                     role="menuitem"
                 >
-                     Name {sortBy === "Name" ? <BiCheck /> : null}
+                    Name {sortBy === "Name" ? <BiCheck /> : null}
                 </div>
                 <div
                     onClick={() => {
@@ -36,7 +36,7 @@ const DropDown = ({
                     className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
                     role="menuitem"
                 >
-                Appointment Name {sortBy === "appointmentName" ? <BiCheck /> : null}
+                    Appointment Name {sortBy === "appointmentName" ? <BiCheck /> : null}
                 </div>
                 <div
                     onClick={() => {
@@ -83,8 +83,8 @@ const SeachBar = ({
 
     return (
         <div className="mx-auto max-w-3xl my-4">
-            <div className="flex items-center justify-between p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
-                <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
+            <div className="flex flex-col md:flex-row items-center justify-between p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+                <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg ">
                     <BiSearch className="h-6 w-6 opacity-30">   </BiSearch>
                     <input className="bg-gray-100 outline-none" type="text" onChange={(e) => {
                         onQueryChange(e.target.value);
@@ -118,7 +118,7 @@ const SeachBar = ({
                         }}
                     />
                 </div>
-            
+
             </div>
         </div>
 

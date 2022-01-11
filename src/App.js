@@ -2,10 +2,14 @@ import React, { useState, useEffect, useCallback } from "react";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
+import { auth } from "./components/Firebase";
+
 
 function App() {
+  //array for storing all appointments
   const [appointmentList, setAppointmentList] = useState([]);
 
+  //fetch data from json file
   const fetchData = useCallback(() => {
     fetch("./data.json")
       .then((res) => res.json())
@@ -15,10 +19,13 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+
   const [query, setQuery] = useState("");
   const [sortBy, setSortBy] = useState("Name");
   const [orderBy, setOrderBy] = useState("asc");
 
+  //sets in a order (ascending)
   const filteredAppointments = appointmentList
     .filter((item) => {
       return (
@@ -36,7 +43,7 @@ function App() {
 
   return (
     <div className="container mx-auto mt-5 font-thin">
-
+      {/* Appoint input and get stores in appointment listts*/}
       <Modal
         lastId={appointmentList.reduce(
           (max, item) => (Number(item.id) > max ? Number(item.id) : max),
@@ -47,6 +54,8 @@ function App() {
         }}
 
       />
+
+      {/* Search card render*/}
       <SearchBar
         query={query}
         onQueryChange={(newQuery) => {
@@ -61,20 +70,22 @@ function App() {
           setSortBy(newSort);
         }}
       />
+
+        {/* Each appointment card render*/}
       <ul className=" max-w-5xl mx-auto flex flex-col">
         {filteredAppointments.map((appointment) => {
-          return (              
-              <Card
-                key={appointment.id}
-                appointment={appointment}
-                onDeleteAppointment={(appointmentId) => {
-                  setAppointmentList(
-                    appointmentList.filter(
-                      (appointment) => appointment.id !== appointmentId
-                    )
-                  );
-                }}
-              />
+          return (
+            <Card
+              key={appointment.id}
+              appointment={appointment}
+              onDeleteAppointment={(appointmentId) => {
+                setAppointmentList(
+                  appointmentList.filter(
+                    (appointment) => appointment.id !== appointmentId
+                  )
+                );
+              }}
+            />
           );
         })}
       </ul>
