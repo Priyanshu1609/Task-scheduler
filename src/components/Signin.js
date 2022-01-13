@@ -21,7 +21,7 @@ const Signin = () => {
     }
 
     return (
-        <div className={`${user ? '' : 'hidden'} w-full h-screen fixed  left-0 top-0 flex justify-center items-center  z-50  bg-red-100`}>
+        <div className={`${user ? '' : 'hidden'} w-full h-[900px] fixed  left-0 top-0 flex justify-center items-center  z-50  bg-red-100`}>
 
             <div className=" w-3/4  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
 
