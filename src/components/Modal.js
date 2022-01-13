@@ -48,7 +48,7 @@ const Modal = ({  lastId }) => {
 
             {toggleForm && <div className="flex items-center justify-center fixed left-0 bottom-0 w-full h-full backdrop-blur-sm  z-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ">
 
-                <div className="border-r-2 border-b-2 border-l-2 border-light-red-500 rounded-b-md pl-4 pr-4 pb-4 bg-red-200">
+                <form className="border-r-2 border-b-2 border-l-2 border-light-red-500 rounded-b-md pl-4 pr-4 pb-4 bg-red-200">
                     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
                         <label
                             htmlFor="appointmentName"
@@ -178,7 +178,7 @@ const Modal = ({  lastId }) => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>}
         </div>
     )

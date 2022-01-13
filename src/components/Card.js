@@ -1,6 +1,15 @@
+import { ref, remove } from '@firebase/database';
 import React from 'react'
 import { BiTrash } from "react-icons/bi";
-const Card = ({ appointment, onDeleteAppointment }) => {
+import { db } from './Firebase';
+const Card = ({ appointment }) => {
+
+    
+    const onDeleteAppointment = (appointment) => {
+        alert(`You sure you want to delete Delete ${appointment.formData.appointmentName}`)
+        remove(ref(db, `/${appointment.uuid}`));
+      };
+
     return (
         <div className=" p-4">
             <li className="border-gray-400 flex flex-row">
@@ -10,24 +19,24 @@ const Card = ({ appointment, onDeleteAppointment }) => {
                     <div className="flex-1 pl-1 mr-16">
                         <div className="font-medium">
                             <span className="flex-none font-medium text-2xl text-red-500">
-                                {appointment.Name}
+                                {appointment.formData.Name}
                             </span>
                         </div>
                         <div className="flex-grow">
                             <div>
                                 <b className="font-bold text-red-500">Appointment:</b>{" "}
-                                {appointment.appointmentName}
+                                {appointment.formData.appointmentName}
                             </div>
-                            <div className="leading-tight">{appointment.aptNotes}</div>
+                            <div className="leading-tight">{appointment.formData.aptNotes}</div>
                         </div>
                     </div>
                     <div
                         className="w-1/4 text-wrap text-center flex text-white text-bold flex-col rounded-md bg-red-500 justify-center items-center mr-10 p-2"
                     >
-                        {appointment.aptDate}
+                        {appointment.formData.aptDate}
                     </div>
                     <button
-                        onClick={() => onDeleteAppointment(appointment.id)}
+                        onClick={() => onDeleteAppointment(appointment)}
                         type="button"
                         className="p-1.5 mr-1.5 mt-1 rounded text-white bg-red-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >

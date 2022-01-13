@@ -17,7 +17,7 @@ function App() {
       const data = snapshot.val();
       if (data !== null) {
         Object.values(data).map((e) =>
-          setAppointmentList((oldArray) => [...oldArray, e.formData])
+          setAppointmentList((oldArray) => [...oldArray, e])
         );
       }
     });
@@ -32,12 +32,14 @@ function App() {
   const filteredAppointments = appointmentList
     .filter((item) => {
       return (
-        item.Name.toLowerCase().includes(query.toLowerCase()) ||
-        item.appointmentName.toLowerCase().includes(query.toLowerCase()) ||
-        item.aptNotes.toLowerCase().includes(query.toLowerCase())
+        item.formData.Name.toLowerCase().includes(query.toLowerCase()) ||
+        item.formData.appointmentName.toLowerCase().includes(query.toLowerCase()) ||
+        item.formData.aptNotes.toLowerCase().includes(query.toLowerCase())
       );
     })
     .sort((a, b) => {
+      a = a.formData
+      b = b.formData
       let order = orderBy === "asc" ? 1 : -1;
       return a[sortBy].toLowerCase() < b[sortBy].toLowerCase()
         ? -1 * order
@@ -76,15 +78,8 @@ function App() {
         {filteredAppointments.map((appointment) => {
           return (
             <Card
-              key={appointment.id}
+              key={appointment.uuid}
               appointment={appointment}
-              onDeleteAppointment={(appointmentId) => {
-                setAppointmentList(
-                  appointmentList.filter(
-                    (appointment) => appointment.id !== appointmentId
-                  )
-                );
-              }}
             />
           );
         })}
