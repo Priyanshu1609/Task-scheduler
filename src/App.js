@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
@@ -10,14 +10,15 @@ function App() {
   //array for storing all appointments
   const [appointmentList, setAppointmentList] = useState([]);
 
+
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
       setAppointmentList([])
       const data = snapshot.val();
       if (data !== null) {
-        Object.values(data).map((e) => {
-          setAppointmentList((oldArray) => [...oldArray, e.formData]);
-        });
+        Object.values(data).map((e) =>
+          setAppointmentList((oldArray) => [...oldArray, e.formData])
+        );
       }
     });
   }, []);
