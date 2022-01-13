@@ -1,20 +1,28 @@
 import React, { useState } from 'react'
 import { BiCalendarPlus } from 'react-icons/bi';
+import { uid } from 'uid';
+import { set, ref } from "firebase/database";
+import { db } from './Firebase'
 
-const Modal = ({ onSendAppointment, lastId }) => {
+const Modal = ({  lastId }) => {
 
-    const clearData = {};
+    const clearData = {
+        id: 0,
+        appointmentName: "",
+        Name: "",
+        aptDate: "",
+        aptNotes: "",
+    };
     const [formData, setFormData] = useState(clearData);
     const [toggleForm, setToggleForm] = useState(false);
     const formDataPublish = () => {
-        const appointmentInfo = {
-            id: lastId + 1,
-            appointmentName: formData.appointmentName,
-            Name: formData.Name,
-            aptDate: formData.aptDate + " " + formData.aptTime,
-            aptNotes: formData.aptNotes,
-        };
-        onSendAppointment(appointmentInfo);
+        
+        formData.id = lastId +1;
+        const uuid = uid();
+        set(ref(db, `/${uuid}`), {
+            formData,
+            uuid,
+        });
         setFormData(clearData);
         setToggleForm(!toggleForm);
     };
@@ -40,7 +48,7 @@ const Modal = ({ onSendAppointment, lastId }) => {
 
             {toggleForm && <div className="flex items-center justify-center fixed left-0 bottom-0 w-full h-full backdrop-blur-sm  z-50 shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 ">
 
-                <form  className="border-r-2 border-b-2 border-l-2 border-light-red-500 rounded-b-md pl-4 pr-4 pb-4 bg-red-200" method='POST'>
+                <div className="border-r-2 border-b-2 border-l-2 border-light-red-500 rounded-b-md pl-4 pr-4 pb-4 bg-red-200">
                     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
                         <label
                             htmlFor="appointmentName"
@@ -67,7 +75,7 @@ const Modal = ({ onSendAppointment, lastId }) => {
                             htmlFor="Name"
                             className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                         >
-                             Name
+                            Name
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                             <input
@@ -154,7 +162,7 @@ const Modal = ({ onSendAppointment, lastId }) => {
                     <div className="pt-5">
 
                         <div className="flex justify-between">
-                            <div className="transform hover:scale-150 transition duration-500" onClick={() => {setToggleForm(!toggleForm)}}>
+                            <div className="transform hover:scale-150 transition duration-500" onClick={() => { setToggleForm(!toggleForm) }}>
                                 <svg
 
                                     xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-900 hover:text-red-500 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -170,7 +178,7 @@ const Modal = ({ onSendAppointment, lastId }) => {
                             </button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>}
         </div>
     )

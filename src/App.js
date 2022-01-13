@@ -2,22 +2,25 @@ import React, { useState, useEffect, useCallback } from "react";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
+import { db } from './components/Firebase'
+import { ref, onValue } from "firebase/database";
 
 
 function App() {
   //array for storing all appointments
   const [appointmentList, setAppointmentList] = useState([]);
 
-  //fetch data from json file
-  const fetchData = useCallback(() => {
-    fetch("./data.json")
-      .then((res) => res.json())
-      .then((data) => setAppointmentList(data));
-  }, []);
-
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    onValue(ref(db), (snapshot) => {
+      setAppointmentList([])
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((e) => {
+          setAppointmentList((oldArray) => [...oldArray, e.formData]);
+        });
+      }
+    });
+  }, []);
 
 
   const [query, setQuery] = useState("");
@@ -48,9 +51,6 @@ function App() {
           (max, item) => (Number(item.id) > max ? Number(item.id) : max),
           0
         )}
-        onSendAppointment={(data) => {
-          setAppointmentList([...appointmentList, data]);
-        }}
 
       />
 
@@ -70,7 +70,7 @@ function App() {
         }}
       />
 
-        {/* Each appointment card render*/}
+      {/* Each appointment card render*/}
       <ul className=" max-w-5xl mx-auto flex flex-col">
         {filteredAppointments.map((appointment) => {
           return (
