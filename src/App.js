@@ -4,6 +4,7 @@ import Card from "./components/Card";
 import Modal from "./components/Modal";
 import { db } from './components/Firebase'
 import { ref, onValue } from "firebase/database";
+import Signin from "./components/Signin";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
   const [sortBy, setSortBy] = useState("Name");
   const [orderBy, setOrderBy] = useState("asc");
 
-  //sets in a order (ascending)
+  //sets in a order (ascending/descending)
   const filteredAppointments = appointmentList
     .filter((item) => {
       return (
@@ -57,6 +58,7 @@ function App() {
 
       />
 
+      <Signin />
       {/* Search card render*/}
       <SearchBar
         query={query}
